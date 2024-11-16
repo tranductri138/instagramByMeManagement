@@ -11,11 +11,7 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
-      "categories/*": ["domain/categories/*"],
-      "orders/*": ["domain/orders/*"],
-      "payments/*": ["domain/payments/*"],
-      "products/*": ["domain/products/*"],
-      "users/*": ["domain/users/*"]
+      "entities/*": ["database/entities/index"],
     },
     "incremental": true,
     "skipLibCheck": true,

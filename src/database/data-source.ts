@@ -7,6 +7,6 @@ dotenvExpand.expand(dotenv.config());
 export default new DataSource({
     type: 'postgres',
     url: process.env.DATASOURCE_URL,
-    entities: ['dist/domain/**/*.entity.js'],
+    entities: ['dist/database/entities/*.entity.js'],
     migrations: ['dist/database/migrations/*.js']
 });

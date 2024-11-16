@@ -1,5 +1,7 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Exclude } from 'class-transformer';
 import { Comment, Follower, Like, Post } from './index';
+import { Role } from 'auth/roles/enums/role.enum';
 
 @Entity()
 export class User {
@@ -12,8 +14,17 @@ export class User {
     @Column({ unique: true, length: 100 })
     email: string;
 
+    @Exclude()
     @Column()
-    passwordHash: string;
+    password: string;
+
+    @Column({
+        type: 'enum',
+        enum: Role,
+        enumName: 'role_enum',
+        default: Role.USER
+    })
+    role: Role;
 
     @Column({ nullable: true, length: 255 })
     profilePictureUrl: string;
@@ -36,7 +47,6 @@ export class User {
     @OneToMany(() => Like, (like) => like.user)
     likes: Like[];
 
-    // Quan hệ theo dõi
     @OneToMany(() => Follower, (follower) => follower.follower)
     following: Follower[];
 
