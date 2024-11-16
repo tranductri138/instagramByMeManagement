@@ -1,7 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    // this is point to direct folder same path in ts config
     "project": "tsconfig.json",
     "sourceType": "module"
   },
